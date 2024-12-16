@@ -24,6 +24,15 @@ async function sendMessage() {
     // Clear the input field
     document.getElementById('user-input').value = '';
 
+    // Display loading message while waiting for API response
+    const loadingMessage = document.createElement('div');
+    loadingMessage.textContent = "Assistant is typing...";
+    loadingMessage.classList.add('message', 'assistant-message');
+    chatMessages.appendChild(loadingMessage);
+    
+    // Scroll to show latest message
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
     // Call GROK API
     try {
         const response = await fetch('/api/chat', {
@@ -33,28 +42,29 @@ async function sendMessage() {
             },
             body: JSON.stringify({ message: userInput }),
         });
+        
         const data = await response.json();
-        let assistantMessageText = `Assistant: ${data.reply}`;
+        const assistantMessageText = `Assistant: ${data.reply}`;
 
-        // Format the response:
-        // 1. Make **text** bold by replacing it with <strong>text</strong>
-        assistantMessageText = assistantMessageText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Format the response
+        let formattedMessage = assistantMessageText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');  // Bold text
+        formattedMessage = formattedMessage.replace(/^(\d+\.)/gm, '<br>$1');  // Add line break for numbered points
 
-        // 2. Ensure numbered points start on a new line.
-        assistantMessageText = assistantMessageText.replace(/^(\d+\.)/gm, '<br>$1');
+        // Remove the loading message
+        chatMessages.removeChild(loadingMessage);
 
         // Create a new div to hold the assistant's formatted message
         const assistantMessage = document.createElement('div');
-        assistantMessage.innerHTML = assistantMessageText;  // Use innerHTML to insert formatted text
+        assistantMessage.innerHTML = formattedMessage;  // Use innerHTML to insert formatted text
         assistantMessage.classList.add('message', 'assistant-message');
         
         chatMessages.appendChild(assistantMessage);
-
-        // Scroll to the bottom after the assistant's message is added
-        setTimeout(() => {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 100);
+        
+        // Scroll to the bottom of the chat to show the latest messages
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     } catch (error) {
         alert('Error communicating with GROK API.');
+        // Remove the loading message if there's an error
+        chatMessages.removeChild(loadingMessage);
     }
 }
