@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: rgb(0,23,15);
+    background: radial-gradient(circle, rgba(0,23,15,1) 0%, rgba(52,139,122,1) 0%, rgba(97,144,131,1) 0%, rgba(21,43,37,1) 100%);
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    padding: 7px 20px; /* Reduced padding to make the header thinner */
+    display: flex;
+    justify-content: space-between; /* Aligns the title and nav-links */
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+header h2 {
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center; /* Centers the nav-links horizontally */
+    gap: 20px; /* Space between the links */
+    margin-right: 225px;
+    align-items: center;
+    flex: 1; /* Ensures the links take up available space */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.nav-links a:hover {
+    color:  #cdeed5;  /* Change color to LinkedIn blue on hover */
+}
+
+.nav-links a:last-child {
+    font-size: 16px;
+    color: #fff;  /* Portfolio link in white */
+}
+
+.nav-links a:last-child:hover {
+    color: #cdeed5; /* Optional: Change hover color for the Portfolio link */
+}
+
+#chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 80px auto; /* Adds margin at the top and centers it horizontally */
+    padding: 10px;
+    width: 50%;  /* Reduce the width of the container */
+    max-width: 500px;  /* Optional: Set a max width */
+    height: 75vh;  /* Reduce the height */
+    overflow-y: auto;
+    border-radius: 10px;
+    background: lightgray;
+    background-blend-mode: screen;
+}
+
+#chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    border-radius: 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+#send-button {
+    background-color: #97cfa5;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #181d18;
+    color:white;  /* Darker green background on hover */
+    transform: scale(1.05);  /* Slightly enlarge the button on hover */
+}
+
+.message {
+    display: inline-block;
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;  /* Left-aligned */
+}
+
+.assistant-message {
+    background-color: #f1f0f0;
+    align-self: flex-start;  /* Right-aligned */
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: #000000;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For Tablets (landscape and portrait) */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        margin-right: 0;
+    }
+
+    #chat-container {
+        width: 80%;  /* Increase width for smaller screens */
+        height: 70vh; /* Adjust the height for tablets */
+    }
+
+    #user-input {
+        font-size: 16px;  /* Increase font size on mobile */
+    }
+
+    #send-button {
+        padding: 12px 24px;  /* Adjust button size for smaller screens */
+    }
+}
+
+/* For Mobile Devices */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 5px 15px; /* Adjust header padding */
+    }
+
+    .nav-links {
+        flex-direction: row;  /* Stack links vertically */
+        gap: 10px;
+        margin-right: 0;
+        align-items: center;  /* Center align links */
+    }
+
+    #chat-container {
+        margin-top:140px;
+        width: 90%;  /* Increase width for smaller screens */
+        height: 68vh; /* Adjust the height for mobile */
+    }
+
+    #user-input {
+        font-size: 18px;  /* Larger font for mobile */
+        padding: 12px;    /* Increase input field size */
+    }
+
+    #send-button {
+        padding: 12px 28px;  /* Increase button size */
+    }
+
+    footer {
+        padding: 5px; /* Adjust footer padding for smaller screens */
+    }
+}

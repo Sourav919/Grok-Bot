@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h2>ChatBot -by Sourav</h2>
+        <div class="nav-links">
+            <a href="https://github.com/Sourav919" target="_blank"><i class="fab fa-github"></i></a>
+            
+            <a href="https://souravportfoliowebsite.vercel.app" target="_blank"><i class="fa fa-briefcase"></i></a> 
+            <a href="https://www.linkedin.com/in/sourav-bhardwaj/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/sourav__999/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://souravportfoliowebsite.vercel.app" target="_blank"></i></a> 
+            
+        </div>
+    </header>
+
+    <main>
+        <div id="chat-container">
+            <div id="chat-messages">
+                <!-- Messages will go here -->
+            </div>
+            <div id="chat-input">
+                <textarea id="user-input" placeholder="Type your message..."></textarea>
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Uses GROK API</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
