@@ -8,7 +8,7 @@
   ],
   "functions": {
     "api/chat": {
-      "maxDuration": 60  
+      "maxDuration": 50
     }
   },
   "routes": [
