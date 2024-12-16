@@ -50,8 +50,10 @@ async function sendMessage() {
         
         chatMessages.appendChild(assistantMessage);
 
-        // Scroll to the bottom of the chat to show the latest messages
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        // Scroll to the bottom after the assistant's message is added
+        setTimeout(() => {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 100);
     } catch (error) {
         alert('Error communicating with GROK API.');
     }

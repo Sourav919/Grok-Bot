@@ -59,22 +59,30 @@ header h2 {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin: 80px auto; /* Adds margin at the top and centers it horizontally */
+    margin: 80px auto;
     padding: 10px;
-    width: 50%;  /* Reduce the width of the container */
-    max-width: 500px;  /* Optional: Set a max width */
-    height: 75vh;  /* Reduce the height */
-    overflow-y: auto;
+    width: 50%;
+    max-width: 500px;
+    height: 75vh;  /* Keeps the height fixed, ensuring there's a limit */
+    overflow-y: auto;  /* Adds vertical scrollbar when content overflows */
     border-radius: 10px;
     background: lightgray;
     background-blend-mode: screen;
+    border: 1px solid #ccc; /* Optional: adds a border around the container */
 }
 
 #chat-messages {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;  /* Optional: add some padding at the bottom */
+    max-height: 100%;
+    overflow-y: auto;  /* Ensure that the messages container also supports scrolling */
 }
+
+
+
 
 #chat-input {
     display: flex;
