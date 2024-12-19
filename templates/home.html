@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Website Layout</title> 
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      ::selection {
+        color: #000;
+        background: #fff;
+      }
+
+      nav {
+        position: fixed;
+        background:rgb(0, 0, 0);
+        width: 100%;
+        padding: 10px 0;
+        z-index: 12;
+      }
+
+      nav .menu {
+        max-width: 1250px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+
+      .menu .logo a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 35px;
+        font-weight: 600;
+      }
+
+      .menu ul {
+        display: inline-flex;
+      }
+
+      .menu ul li {
+        list-style: none;
+        margin-left: 7px;
+      }
+
+      .menu ul li:first-child {
+        margin-left: 0px;
+      }
+
+      .menu ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      .menu ul li a:hover {
+        background: #fff;
+        color: black;
+      }
+
+      .img {
+        background: rgb(0,23,15);
+        background: radial-gradient(circle, rgba(0,23,15,1) 0%, rgba(52,139,122,1) 0%, rgba(97,144,131,1) 0%, rgba(21,43,37,1) 100%);
+        width: 100%;
+        height: 84.5vh;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+
+      .img::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4);
+      }
+
+      .center {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .center .title {
+        color: #fff;
+        font-size: 55px;
+        font-weight: 600;
+      }
+
+      .center .sub_title {
+        color: #fff;
+        font-size: 52px;
+        font-weight: 600;
+      }
+
+      .center .btns {
+        margin-top: 20px;
+      }
+
+      .center .btns button {
+        height: 55px;
+        width: 170px;
+        border-radius: 5px;
+        border: none;
+        margin: 0 10px;
+        border: 2px solid white;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0 10px;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .center .btns button:first-child {
+        color: #fff;
+        background: none;
+      }
+
+      .btns button:first-child:hover {
+        background: white;
+        color: black;
+      }
+
+      .center .btns button:last-child {
+        background: white;
+        color: black;
+      }
+      footer {
+        background-color:rgb(0, 0, 0);
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+  
+      .social-media {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+  
+      .social-media a {
+        color: white;
+        font-size: 2rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+  
+      .social-media a:hover {
+        background-color: black;
+        color:rgb(50, 83, 75);
+      }
+  
+      footer p {
+        margin: 10px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="menu">
+        <div class="logo">
+          <a href="#">GROKBOT</a>
+        </div>
+        <ul>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="img"></div>
+    
+    <div class="center">
+      <div class="title">GROKBOT</div>
+      <div class="sub_title">Created using Grok API</div>
+      <div class="btns">
+        
+        <a href="{{ url_for('signup') }}">
+            <button>Get Started</button>
+          </a>
+          
+      </div>
+    </div>
+    <footer>
+        <div class="social-media">
+          <a href="https://github.com/Sourav919" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://souravportfoliowebsite.vercel.app" target="_blank"><i class="fa fa-briefcase"></i></a> 
+          <a href="https://www.linkedin.com/in/sourav-bhardwaj/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/sourav__999/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 GROKBOT - by Sourav. All rights reserved.</p>
+      </footer>
+  </body>
+  
+</html>

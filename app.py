@@ -23,8 +23,9 @@ config = {
 @app.route('/')
 def home():
     if 'user' in session:
-        return render_template('index.html')
-    return redirect(url_for('login'))
+        return render_template('index.html')  # Existing user page
+    return render_template('home.html')  # Landing page when not logged in
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -75,7 +76,7 @@ def signup():
 @app.route('/logout')
 def logout():
     session.pop('user', None)
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
